@@ -4,7 +4,7 @@ galaxy_info:
   description: Configures my preferred macOS defaults.
   license: MIT
   namespace: dronenb
-  role_name: macos-defaults
+  role_name: macos_defaults
   min_ansible_version: "2.1"
   platforms:
     - name: macOS
