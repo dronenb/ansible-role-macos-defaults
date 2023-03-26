@@ -1,0 +1,26 @@
+- name: Block of user specific items
+  become: yes
+  become_user: "{{ become_username }}"
+  block:
+  - name: Make TextEdit default to plain text
+    community.general.osx_defaults:
+      domain: com.apple.TextEdit
+      key: RichText
+      type: int
+      value: 0
+
+  - name: Enable focus follows mouse for Terminal
+    community.general.osx_defaults:
+      domain: com.apple.terminal
+      key: FocusFollowsMouse
+      type: boolean
+      value: true
+
+  - name: Dock related items
+    include_tasks: dock.yml
+
+  - name: Menu Bar related items
+    include_tasks: menu_bar.yml
+
+  - name: Finder related items
+    include_tasks: finder.yml

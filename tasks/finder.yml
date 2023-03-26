@@ -1,0 +1,35 @@
+---
+- name: Show filename extensions
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: boolean
+    value: true
+
+- name: Don't create .DS_Store files on network volumes
+  community.general.osx_defaults:
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    type: boolean
+    value: true
+
+- name: Don't create .DS_Store files on USB volumes
+  community.general.osx_defaults:
+    domain: com.apple.desktopservices
+    key: DSDontWriteUSBStores
+    type: boolean
+    value: true
+
+- name: Enable AirDrop over ethernet
+  community.general.osx_defaults:
+    domain: com.apple.NetworkBrowser
+    key: BrowseAllInterfaces
+    type: boolean
+    value: true
+
+- name: Enable AirDrop over ethernet
+  community.general.osx_defaults:
+    domain: org.gpgtools.common
+    key: UseKeychain
+    type: boolean
+    value: true

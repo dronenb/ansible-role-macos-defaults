@@ -1,0 +1,32 @@
+---
+- name: Enable battery percentage
+  community.general.osx_defaults:
+    domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+    key: BatteryShowPercentage
+    type: int
+    value: 1
+    state: present
+  
+- name: Enable Bluetooth icon in menu bar
+  community.general.osx_defaults:
+      domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+      key: Bluetooth
+      type: int
+      value: 18
+      state: present
+
+- name: Enable now playing icon in menu bar
+  community.general.osx_defaults:
+    domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+    key: NowPlaying
+    type: int
+    value: 18
+    state: present
+
+- name: Enable volume icon in menu bar
+  community.general.osx_defaults:
+    domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+    key: Sound
+    type: int
+    value: 18
+    state: present
