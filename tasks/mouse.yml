@@ -14,7 +14,7 @@
     type: int
     value: 2
 
-- name: Enable right click (1)
+- name: Enable right click (2)
   community.general.osx_defaults:
     domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
     key: TrackpadRightClick
@@ -27,3 +27,17 @@
     key: Clicking
     type: int
     value: 1
+
+- name: Enable focus follows mouse for Terminal
+  community.general.osx_defaults:
+    domain: com.apple.terminal
+    key: FocusFollowsMouse
+    type: boolean
+    value: true
+
+- name: Enable always show scroll bars
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowScrollBars
+    type: string
+    value: "Always"

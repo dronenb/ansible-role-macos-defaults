@@ -1,5 +1,4 @@
 ---
-
 - name: Enable Dock auto-hide
   community.general.osx_defaults:
     domain: com.apple.dock
@@ -23,10 +22,3 @@
     type: float
     value: 0
     state: present
-
-- name: Enable always show scroll bars
-  community.general.osx_defaults:
-    domain: NSGlobalDomain
-    key: AppleShowScrollBars
-    type: string
-    value: "Always"

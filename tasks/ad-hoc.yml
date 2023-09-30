@@ -1,0 +1,22 @@
+---
+
+- name: Use keychain for GPG
+  community.general.osx_defaults:
+    domain: org.gpgtools.common
+    key: UseKeychain
+    type: boolean
+    value: true
+
+- name: Make TextEdit default to plain text
+  community.general.osx_defaults:
+    domain: com.apple.TextEdit
+    key: RichText
+    type: int
+    value: 0
+
+- name: Disable click to show desktop
+  community.general.osx_defaults:
+    domain: com.apple.WindowManager
+    key: EnableStandardClickToShowDesktop
+    type: int
+    value: 0

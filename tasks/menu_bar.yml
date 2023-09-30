@@ -1,23 +1,34 @@
 ---
+- name: Variablize control center plist
+  ansible.builtin.set_fact:
+    control_center_plist: >-
+      {{
+        [
+          item.path,
+          'Library/Preferences/ByHost/',
+          'com.apple.controlcenter.plist'
+        ] | path_join
+      }}
+
 - name: Enable battery percentage
   community.general.osx_defaults:
-    domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+    domain: "{{ control_center_plist }}"
     key: BatteryShowPercentage
     type: int
     value: 1
     state: present
-  
+
 - name: Enable Bluetooth icon in menu bar
   community.general.osx_defaults:
-      domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
-      key: Bluetooth
-      type: int
-      value: 18
-      state: present
+    domain: "{{ control_center_plist }}"
+    key: Bluetooth
+    type: int
+    value: 18
+    state: present
 
 - name: Enable now playing icon in menu bar
   community.general.osx_defaults:
-    domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+    domain: "{{ control_center_plist }}"
     key: NowPlaying
     type: int
     value: 18
@@ -25,7 +36,7 @@
 
 - name: Enable volume icon in menu bar
   community.general.osx_defaults:
-    domain: "{{ item.path }}/Library/Preferences/ByHost/com.apple.controlcenter.plist"
+    domain: "{{ control_center_plist }}"
     key: Sound
     type: int
     value: 18

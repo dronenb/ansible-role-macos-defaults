@@ -26,10 +26,3 @@
     key: BrowseAllInterfaces
     type: boolean
     value: true
-
-- name: Enable AirDrop over ethernet
-  community.general.osx_defaults:
-    domain: org.gpgtools.common
-    key: UseKeychain
-    type: boolean
-    value: true

@@ -5,11 +5,11 @@
   ansible.builtin.find:
     paths: /Users
     file_type: directory
-    excludes: "Shared,root"
+    excludes: "Shared,root,Library"
   register: users
 
 - name: User specific tasks
-  include_tasks: user_specific.yml
+  ansible.builtin.include_tasks: user_specific.yml
   loop: "{{ users.files }}"
   vars:
-    - become_username: "{{ item.path | basename }}"
+    become_username: "{{ item.path | basename }}"
